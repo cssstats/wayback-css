@@ -8,9 +8,9 @@
     "index.js"
   ],
   "scripts": {
-    "test": "ava"
+    "test": "ava -v"
   },
-  "repository": "johnotander/wayback-css",
+  "repository": "cssstats/wayback-css",
   "keywords": [],
   "license": "MIT",
   "dependencies": {
