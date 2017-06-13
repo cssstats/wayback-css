@@ -27,7 +27,7 @@ const getCssFromLinks = css => {
   const linkCss = []
 
   const px = css.links.map(link => {
-    const loc = `${baseUrl}${link}`
+    const loc = /^http/.test(link) ? link : `${baseUrl}${link}`
     console.log(loc)
 
     return got(loc).then(res => linkCss.push(res.body))
@@ -45,6 +45,7 @@ const getCss = html => {
   const $ = cheerio.load(html)
 
   const results = {
+    html,
     links: [],
     styles: [],
     inline: getInline(html)
