@@ -2,7 +2,7 @@
   "name": "wayback-css",
   "description": "Get the css for a wayback machine url",
   "author": "John Otander",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "files": [
     "index.js"
