@@ -22,12 +22,22 @@ const aggregateCss = css => {
   return css
 }
 
+const normalizeLink = (baseUrl, link) => {
+  if (/^http/.test(link)) {
+    return link
+  } else if (/^\/\//.test(link)) {
+    return `http:${link}`
+  } else {
+    return `${baseUrl}${link}`
+  }
+}
+
 const getCssFromLinks = css => {
   const baseUrl = 'http://web.archive.org'
   const linkCss = []
 
   const px = css.links.map(link => {
-    const loc = /^http/.test(link) ? link : `${baseUrl}${link}`
+    const loc = normalizeLink(baseUrl, link)
     console.log(loc)
 
     return got(loc).then(res => linkCss.push(res.body))
