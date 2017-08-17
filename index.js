@@ -38,9 +38,10 @@ const getCssFromLinks = css => {
 
   const px = css.links.map(link => {
     const loc = normalizeLink(baseUrl, link)
-    console.log(loc)
 
-    return got(loc).then(res => linkCss.push(res.body))
+    return got(loc)
+      .then(res => linkCss.push(res.body))
+      .catch(console.log)
   })
 
   return Promise.all(px)
